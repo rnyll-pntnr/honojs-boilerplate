@@ -39,7 +39,7 @@ The project's directory layout is designed for clarity and maintainability:
 Get the API up and running in a few simple steps:
 1. Clone: `git clone https://github.com/rnyll-pntnr/honojs-boilerplate`
 2. Navigate: `cd honojs-boilerplate`
-3. Env: `cp .env.sample .env.development and fill in details.`
+3. Env: `cp .env.sample .env.development` and fill in details.
 4. Install:
 ```bash
 bun install
