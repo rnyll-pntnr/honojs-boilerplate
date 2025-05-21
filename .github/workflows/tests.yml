@@ -37,6 +37,4 @@ jobs:
           bun-version: 'latest'
 
       - name: Tests
-        with:
-          environment: Test
         run: npm run test
