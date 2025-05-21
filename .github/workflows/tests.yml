@@ -39,13 +39,15 @@ jobs:
         with:
           bun-version: 'latest'
 
-      - name: Tests
+      - name: Test ENV vars
         run: |
           echo "DB_STRING=$DB_STRING" >> .env
           echo "DB_NAME=$DB_NAME" >> .env
           echo "DB_USER=$DB_USER" >> .env
           echo "DB_PASS=$DB_PASS" >> .env
           echo "PORT=3000" >> .env
+
+      - name: Tests
         env:
           PORT: 3000
           DB_STRING: $DB_STRING
