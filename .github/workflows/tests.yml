@@ -37,4 +37,10 @@ jobs:
           bun-version: 'latest'
 
       - name: Tests
+        env:
+          PORT: ${{ vars.PORT }}
+          DB_STRING: ${{ secrets.DB_STRING }}
+          DB_NAME: ${{ vars.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASS: ${{ secrets.DB_PASS }}
         run: npm run test
