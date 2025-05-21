@@ -31,25 +31,14 @@ jobs:
       - name: Build Assets
         run: npm run build
 
-      # - name: Copy Environment File
-      #   run: cp .env.example .env
-
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: 'latest'
 
-      - name: Test ENV vars
-        run: |
-          echo "DB_STRING=${{ vars.DB_STRING }}" >> .env
-          echo "DB_NAME=${{ vars.DB_NAME }}" >> .env
-          echo "DB_USER=${{ vars.DB_USER }}" >> .env
-          echo "DB_PASS=${{ vars.DB_PASS }}" >> .env
-          echo "PORT=3000" >> .env
-
       - name: Tests
         env:
-          PORT: 3000
+          PORT: ${{ vars.PORT }}
           DB_STRING: ${{ vars.DB_STRING }}
           DB_NAME: ${{ vars.DB_NAME }}
           DB_USER: ${{ vars.DB_USER }}
