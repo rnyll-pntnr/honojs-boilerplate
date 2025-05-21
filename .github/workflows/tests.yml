@@ -13,7 +13,6 @@ on:
 jobs:
   test_build:
     runs-on: ubuntu-latest
-    environment: Test
 
     steps:
       - name: Checkout
@@ -41,17 +40,17 @@ jobs:
 
       - name: Test ENV vars
         run: |
-          echo "DB_STRING=$DB_STRING" >> .env
-          echo "DB_NAME=$DB_NAME" >> .env
-          echo "DB_USER=$DB_USER" >> .env
-          echo "DB_PASS=$DB_PASS" >> .env
+          echo "DB_STRING=${{ vars.DB_STRING }}" >> .env
+          echo "DB_NAME=${{ vars.DB_NAME }}" >> .env
+          echo "DB_USER=${{ vars.DB_USER }}" >> .env
+          echo "DB_PASS=${{ vars.DB_PASS }}" >> .env
           echo "PORT=3000" >> .env
 
       - name: Tests
         env:
           PORT: 3000
-          DB_STRING: $DB_STRING
-          DB_NAME: $DB_NAME
-          DB_USER: $DB_USER
-          DB_PASS: $DB_PASS
+          DB_STRING: ${{ vars.DB_STRING }}
+          DB_NAME: ${{ vars.DB_NAME }}
+          DB_USER: ${{ vars.DB_USER }}
+          DB_PASS: ${{ vars.DB_PASS }}
         run: npm run test
