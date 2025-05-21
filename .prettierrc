@@ -1,0 +1,6 @@
+{
+    "semi": false,
+    "singleQuote": true,
+    "singleAttributePerLine": false,
+    "plugins": ["prettier-plugin-organize-imports"]
+}
