@@ -40,3 +40,9 @@ jobs:
 
       - name: Tests
         run: npm run test
+        env:
+          PORT: 3000
+          DB_STRING: ${{ secrets.DB_STRING }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASS: ${{ secrets.DB_PASS }}
