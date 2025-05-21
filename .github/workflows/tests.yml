@@ -29,12 +29,14 @@ jobs:
         run: npm install
 
       - name: Build Assets
-        run: npm run build        
+        run: npm run build
 
-      - name: Setup Bun and Run Tests
+      - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: 'latest'
+
+      - name: Run Tests
         env:
           PORT: ${{ vars.PORT }}
           DB_STRING: ${{ secrets.DB_STRING }}
