@@ -20,21 +20,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-
-      - name: Install Node Dependencies
-        run: npm install
-
-      - name: Build Assets
-        run: npm run build
-
-      - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: 'latest'
+
+      - name: Install Bun Dependencies
+        run: bun install
+
+      - name: Build Assets
+        run: bun run build
 
       - name: Run Tests
         env:
@@ -43,4 +37,4 @@ jobs:
           DB_NAME: ${{ vars.DB_NAME }}
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASS: ${{ secrets.DB_PASS }}
-        run: npm run test
+        run: bun run test

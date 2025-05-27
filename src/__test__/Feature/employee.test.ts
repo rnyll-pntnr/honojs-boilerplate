@@ -1,5 +1,5 @@
 import { testClient } from 'hono/testing'
-import { app } from '..'
+import { app } from '../..'
 
 describe('Employee', () => {
   const client: any = testClient(app)

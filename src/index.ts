@@ -8,7 +8,7 @@ import { dbConfig } from './config/database'
 import { defaultRoutes } from './routes'
 import { PinoLogger } from './utils/logger'
 
-const pinoLogger: PinoLogger = new PinoLogger()
+export const pinoLogger: PinoLogger = new PinoLogger()
 export const app: Hono = new Hono()
 
 app.use(logger())

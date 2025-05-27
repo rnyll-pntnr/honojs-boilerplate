@@ -2,9 +2,9 @@ import moment from 'moment'
 import pino, { type Logger } from 'pino'
 
 export interface ILogger {
-  info: (message: string) => void
-  warn: (message: string) => void
-  error: (message: string) => void
+  info: (message: string | object) => void
+  warn: (message: string | object) => void
+  error: (message: string | object) => void
 }
 
 export class PinoLogger implements ILogger {
@@ -22,15 +22,15 @@ export class PinoLogger implements ILogger {
     })
   }
 
-  info(message = ''): void {
+  info(message: string | object): void {
     this.logger.info(message)
   }
 
-  warn(message = ''): void {
+  warn(message: string | object): void {
     this.logger.warn(message)
   }
 
-  error(message = ''): void {
+  error(message: string | object): void {
     this.logger.error(message)
   }
 }
